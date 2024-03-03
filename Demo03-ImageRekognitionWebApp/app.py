@@ -6,6 +6,8 @@ import uuid
 
 app = Flask(__name__)
 
+# TODO: Create a S3 bucket to be used?
+
 # export S3_BUCKET_NAME=albertleng-aws-sdk-boto3
 S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
 
