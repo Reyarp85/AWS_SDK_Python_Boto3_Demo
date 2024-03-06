@@ -1,4 +1,4 @@
-##  AWS SDK Python Boto3 Demos
+## AWS SDK Python Boto3 Demos
 
 This repository contains demos using AWS SDK Python Boto3 to interact with different AWS services.
 - [Demo01-Sentiment Analysis](./Demo01-SentimentAnalysis)
@@ -27,4 +27,12 @@ source venv/bin/activate
 2. Install Dependencies
 ```shell
 pip install -r requirements.txt
+```
+
+## Running
+
+Navigate to the [demos folder](#aws-sdk-python-boto3-demos) and execute the python script.  
+For example, for [Demo01](./Demo01-SentimentAnalysis)
+```shell
+python comprehend_sentiment_analysis.py
 ```
