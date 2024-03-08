@@ -6,13 +6,9 @@ import uuid
 
 app = Flask(__name__)
 
-# TODO: Create a S3 bucket to be used?
+S3_BUCKET = os.environ.get('S3_BUCKET_NAME', 'albertleng-aws-sdk-boto3')
 
-# export S3_BUCKET_NAME=albertleng-aws-sdk-boto3
-S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
-
-# export SECRET_KEY=test_key
-app.secret_key = os.environ.get('SECRET_KEY')
+app.secret_key = os.environ.get('SECRET_KEY', 'test_key')
 
 s3_client = boto3.client('s3')
 rekognition_client = boto3.client('rekognition')
@@ -36,7 +32,6 @@ def index():
     return render_template('index.html')
 
 
-# TODO: Use Postman to demo also
 @app.route('/upload', methods=['POST'])
 def upload():
     if 'image' not in request.files:
@@ -46,7 +41,7 @@ def upload():
     if file.filename == '':
         return redirect(url_for('index'))
 
-        # Check if the file extension is supported
+    # Check if the file extension is supported
     allowed_extensions = {'jpg', 'jpeg', 'png'}
     if file.filename.split('.')[-1].lower() not in allowed_extensions:
         session['error_message'] = ("Unsupported file format. "

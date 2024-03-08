@@ -1,5 +1,8 @@
 import boto3
+# from botocore.exceptions import ClientError
 
+
+# ref: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#ec2
 
 def list_security_groups(ec2):
     security_groups = ec2.describe_security_groups()

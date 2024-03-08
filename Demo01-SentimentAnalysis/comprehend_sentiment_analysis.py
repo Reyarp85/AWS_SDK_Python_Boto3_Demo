@@ -2,6 +2,8 @@ import boto3
 import pprint
 
 
+# ref: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend.html
+
 def detect_sentiment(text, language_code):
     comp = boto3.client('comprehend')
     response = comp.detect_sentiment(Text=text, LanguageCode=language_code)
